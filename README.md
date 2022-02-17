@@ -13,6 +13,7 @@ The "One Time Pad" software tool is designed for multithreaded plaintext encrypt
 Realize LCG - a linear congruent pseudorandom number generator (PSC) that calculates a pseudorandom sequence (PSP) using a recompetitive formula: 
 
  $$X_{n+1}\equiv (aX_{n} + c)\mod{M}$$
+![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
 
 - [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator/) - Linear congruential generator 
 - [OTP](https://www.cryptomuseum.com/crypto/otp/index.htm/) - One-Time Pad (Vernam cipher)
