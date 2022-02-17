@@ -12,7 +12,8 @@ The "One Time Pad" software tool is designed for multithreaded plaintext encrypt
 
 Realize LCG - a linear congruent pseudorandom number generator (PSC) that calculates a pseudorandom sequence (PSP) using a recompetitive formula: 
 
- $$X_{n+1}\equiv (aX_{n} + c)\mod{M}$$
+<img src="https://latex.codecogs.com/svg.image?X_{n&plus;1}\equiv&space;(aX_{n}&space;&plus;&space;c)\mod{M}" title="X_{n+1}\equiv (aX_{n} + c)\mod{M}" />
+
 
 - [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator/) - Linear congruential generator 
 - [OTP](https://www.cryptomuseum.com/crypto/otp/index.htm/) - One-Time Pad (Vernam cipher)
@@ -78,15 +79,15 @@ Realize LCG - a linear congruent pseudorandom number generator (PSC) that calcul
 Previously, a linear congruent generator was used to generate a pseudorandom sequence . This generator has good performance, but a short sequence repetition period and other anomalies, which makes it unsuitable for use in cryptographic tasks.
 [The BBS(Blum-Blum-Shub) algorithm](https://en.wikipedia.org/wiki/Blum_Blum_Shub), on the contrary, allows to obtain a highly cryptographically stable sequence, but is characterized by slow operation. The calculation is performed using a recurrent formula:
 
-$$X_{n+1}\equiv X_{n}^2\mod{M}$$, 
+<img src="https://latex.codecogs.com/svg.image?X_{n&plus;1}\equiv&space;X_{n}^2\mod{M}" title="X_{n+1}\equiv X_{n}^2\mod{M}" />,
 
-where $$M = pq$$, $$p$$ and $$q$$ are prime numbers such that $$M$$ is a [Blum number](https://oeis.org/A016105).
+where <img src="https://latex.codecogs.com/svg.image?M&space;=&space;pq" title="M = pq" />, <img src="https://latex.codecogs.com/svg.image?p" title="p" /> and <img src="https://latex.codecogs.com/svg.image?q" title="q" /> are prime numbers such that <img src="https://latex.codecogs.com/svg.image?M" title="M" /> is a [Blum number](https://oeis.org/A016105).
 
-The output of the generator $$Y_{n+1}$$ will be the parity bit of the element $$X_{n+1}$$ :
+The output of the generator  <img src="https://latex.codecogs.com/svg.image?Y_{n&plus;1}" title="Y_{n+1}" />  will be the parity bit of the element <img src="https://latex.codecogs.com/svg.image?X_{n&plus;1}" title="X_{n+1}" /> :
 
-$$Y_{n+1} = paritybit(X_{n+1})$$
+<img src="https://latex.codecogs.com/svg.image?Y_{n&plus;1}&space;=&space;paritybit(X_{n&plus;1})" title="Y_{n+1} = paritybit(X_{n+1})" />
 
-The generator parameters, thus, will be $$X_{0}$$ (seed, initial state), as well as the values of $$p$$ and $$q$$.
+The generator parameters, thus, will be <img src="https://latex.codecogs.com/svg.image?X_{0}" title="X_{0}" /> (seed, initial state), as well as the values of <img src="https://latex.codecogs.com/svg.image?p" title="p" /> and <img src="https://latex.codecogs.com/svg.image?q" title="q" />.
 
 ### Description of the "Client-RM" interaction protocol
 
@@ -113,7 +114,7 @@ Realize the cryptobbs-client client program for the QNX Neutrino 6.6 (x86) platf
 
 #### Requirements:
 1.	Open a connection with the RM using the `open("/dev/cryptobbs")` function.
-2.	Set the parameters of the BBS generator ($$p = 3, q = 263, seed = 866$$) using the[`devctl()`](https://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_lib_ref/d/devctl.html) function.
+2.	Set the parameters of the BBS generator (<img src="https://latex.codecogs.com/svg.image?p&space;=&space;3,&space;q&space;=&space;263,&space;seed&space;=&space;866" title="p = 3, q = 263, seed = 866" />) using the[`devctl()`](https://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_lib_ref/d/devctl.html) function.
 3.	In the loop, send requests to the RM using the [`devctl()`](https://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_lib_ref/d/devctl.html) function with the requirement to receive the next element of the pseudorandom sequence.
 4.  Save the next element to a fixed-length 1024 vector, working on the principle of a ring buffer.
 5.	The cycle ends when the user presses Ctrl + C (the _SIGINT_ process receives).
