@@ -1,5 +1,10 @@
 # Tasks on Real Time Operating System 
-## _Installation_
+## Introduction
+This repository contains assignments for the university course of the real-time operating system. Here are solutions to such problems as:
+- Multithreaded plaintext encryption with a one-time notepad (Vernam cipher) generated using a linear congruent RNG. 
+- Plaintext encryption with The BBS(Blum-Blum-Shub) algorithm
+- Single-threaded QNX Neutrino resource manager
+- Multithreaded QNX Neutrino resource manager
 
 
 
