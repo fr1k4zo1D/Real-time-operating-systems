@@ -20,8 +20,8 @@ Realize LCG - a linear congruent pseudorandom number generator (PSC) that calcul
 <img src="https://latex.codecogs.com/svg.image?X_{n&plus;1}\equiv&space;(aX_{n}&space;&plus;&space;c)\mod{M}" title="X_{n+1}\equiv (aX_{n} + c)\mod{M}" />
 
 
-- [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator/) - Linear congruential generator 
-- [OTP](https://www.cryptomuseum.com/crypto/otp/index.htm/) - One-Time Pad (Vernam cipher)
+- [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator) - Linear congruential generator 
+- [OTP](https://www.cryptomuseum.com/crypto/otp/index.htm) - One-Time Pad (Vernam cipher)
 
 ### Requirements
 
@@ -62,14 +62,14 @@ Realize LCG - a linear congruent pseudorandom number generator (PSC) that calcul
 1. Read the command line parameters, unpack them into a structure.
 2. Read a file with plain text in binary form, display it in RAM. Get the file size. Provide a limit on the file size.
 3. Create a pseudo-random sequence based on the read parameters using LCG in a separate pthread API thread.
-4. Synchronize the main thread with the worker by [joining](http://www.qnx.com/developers/docs/6.5.0/index.jsp?topic=%2Fcom.qnx.doc.neutrino_lib_ref%2Fp%2Fpthread_join.html/).
-5. [Create a barrier](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_init.html/).
+4. Synchronize the main thread with the worker by [joining](http://www.qnx.com/developers/docs/6.5.0/index.jsp?topic=%2Fcom.qnx.doc.neutrino_lib_ref%2Fp%2Fpthread_join.html).
+5. [Create a barrier](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_init.html).
 6. Declare a context structure containing a barrier, input data for each worker (fragments of notepad and plaintext), as well as providing for receiving output data from the worker.
 7. Create N workers using the _pthread_create()_ function, passing each instance of the context.
-8. The main stream is [blocked by waiting for a barrier](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_wait.html/).
-9. Each worker performs bitwise addition modulo 2 of its notepad and text fragments and is [blocked by waiting for a barrier](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_wait.html/).
+8. The main stream is [blocked by waiting for a barrier](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_wait.html).
+9. Each worker performs bitwise addition modulo 2 of its notepad and text fragments and is [blocked by waiting for a barrier](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_wait.html).
 10. The main stream merges and saves the data into an output file.
-11. [The barrier is being destroyed](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_destroy.html/ ).
+11. [The barrier is being destroyed](http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.lib_ref/topic/p/pthread_barrier_destroy.html ).
 
 
 ### Test
